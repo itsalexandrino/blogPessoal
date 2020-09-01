@@ -12,14 +12,14 @@ export class AuthService {
 
   logar(userLogin: UserLogin) {
 
-    return this.http.post('hhtp://localhost:8080/usuarios/logar', userLogin)
+    return this.http.post('http://localhost:8080/usuarios/logar', userLogin)
 
   }
 
 
   cadastrar(user: User) {
 
-    return this.http.post('hhtp://localhost:8080/usuarios/cadastrar', user)
+    return this.http.post('http://localhost:8080/usuarios/cadastrar', user)
 
   }
 
