@@ -3,17 +3,36 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
 
- <nav class="main-navigation">
-        <div class="navbar-header animated fadeInUp">
-            <a class="navbar-brand" href=" https://brazil.generation.org/">Generation</a>
-        </div>
-        <ul class="nav-list">
+<nav class="main-navigation">
+    <div class="navbar-header animated fadeInUp">
+        <a class="navbar-brand" href=" https://brazil.generation.org/">Generation</a>
+    </div>
+    <ul class="nav-list d-flex justify-content-end">
+        <li class="nav-list-item">
+            <a routerLink='/home' class="nav-link">Home</a>
+        </li>
+        <li class="nav-list-item">
+            <a routerLink='/feed' class="nav-link">Sobre nos</a>
+        </li>
+        <div *ngIf='auth.btnLogin()'>
             <li class="nav-list-item">
-                <a routerLink='/home' class="nav-link">Home</a>
+                <a routerLink='/login' class="nav-link">Login</a>
             </li>
-            <li class="nav-list-item">
-                <a routerLink='/feed' class="nav-link">Sobre nos</a>
-            </li>
-        </ul>
 
-    </nav>
+        </div>
+        <div *ngIf='auth.btnLogin()'>
+            <li class="nav-list-item">
+                <a routerLink='/cadastro' class="nav-link">Cadastro</a>
+            </li>
+
+        </div>
+
+        <div *ngIf='auth.btnSair()'>
+            <li class="nav-list-item">
+                <a (click)='sair' class="nav-link">Sair</a>
+            </li>
+        </div>
+
+    </ul>
+
+</nav>
