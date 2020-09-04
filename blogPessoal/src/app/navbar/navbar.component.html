@@ -1,38 +1,65 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
-
-<nav class="main-navigation">
-    <div class="navbar-header animated fadeInUp">
-        <a class="navbar-brand" href=" https://brazil.generation.org/">Generation</a>
+<!--MENU-->
+<nav class="font navbar navbar-expand-lg navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+        aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse d-flex justify-content-center " id="navbarTogglerDemo01">
+        
+        <ul class="navbar-nav" id="menu">
+            <li class="nav-list-item p-2">
+                <a routerLink='/home' class="nav-link">Home</a>
+            </li>
+            <li class="nav-list-item p-2">
+                <a routerLink='/feed' class="nav-link">Feed</a>
+            </li>
+            <div *ngIf='auth.btnLogin()'>
+                <li class="nav-list-item p-2">
+                    <a class="nav-link" data-toggle="modal" data-target="#modal" [routerLink]="">Login</a>
+                </li>
+    
+            </div>
+            <div *ngIf='auth.btnLogin()'>
+                <li class="nav-list-item p-2">
+                    <a routerLink='/cadastro' class="nav-link">Cadastro</a>
+                </li>
+    
+            </div>
+    
+            <div *ngIf='auth.btnSair()'>
+                <li class="nav-list-item p-2">
+                    <a (click)='sair' class="nav-link">Sair</a>
+                </li>
+            </div>
+        </ul>
     </div>
-    <ul class="nav-list d-flex justify-content-end">
-        <li class="nav-list-item">
-            <a routerLink='/home' class="nav-link">Home</a>
-        </li>
-        <li class="nav-list-item">
-            <a routerLink='/feed' class="nav-link">Sobre nos</a>
-        </li>
-        <div *ngIf='auth.btnLogin()'>
-            <li class="nav-list-item">
-                <a routerLink='/login' class="nav-link">Login</a>
-            </li>
-
-        </div>
-        <div *ngIf='auth.btnLogin()'>
-            <li class="nav-list-item">
-                <a routerLink='/cadastro' class="nav-link">Cadastro</a>
-            </li>
-
-        </div>
-
-        <div *ngIf='auth.btnSair()'>
-            <li class="nav-list-item">
-                <a (click)='sair' class="nav-link">Sair</a>
-            </li>
-        </div>
-
-    </ul>
-
 </nav>
+<div id="modal" class="modal fade" tabindex="-1" role="dialog"><!-- Início do código da janela modal -->
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header"><!-- Header do modal -->
+              <h4 class="modal-title">Login</h4><!-- Título -->
+          </div>
+          <div class="modal-body"><!-- Corpo do modal -->
+              <div action=""><!-- Início do Formulário -->
+                  <div class="form-group">
+                      <input type="email" [(ngModel)]='userLogin.usuario' class="form-control" placeholder="Digite seu email">
+                  </div>
+                  <div class="form-group">
+                      <input type="password" [(ngModel)]='userLogin.senha' class="form-control" placeholder="Digite sua senha">
+                  </div>
+                  <button type="button" class="btn btn-block btn-info glyphicon glyphicon-remove" data-dismiss="modal" (click)='entrar()' aria-hidden="true">Enviar</button>
+                </div>
+          </div>
+          <div class="modal-footer"> <!-- Footer do Modal -->
+              <button type="button" class="btn btn-default" data-dismiss="modal">
+                  Fechar <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+              </button>    
+              <button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true" routerLink='/cadastro'>
+                  Cadastre-se 
+              <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+              </button>          
+          </div>
+      </div>
+  </div>
+</div>

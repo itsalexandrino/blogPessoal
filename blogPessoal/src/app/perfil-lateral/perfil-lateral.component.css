@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Alata&display=swap');
+
+.fontn{
+    font-family: Alata;
+    font-size: 20pt;
+    letter-spacing: .1rem;
+    font-weight: bolder;
+}
+.font{
+    font-family: Alata;
+    font-size: 14pt;
+    
+    
+}
